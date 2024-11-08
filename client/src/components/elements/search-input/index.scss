@@ -1,0 +1,23 @@
+@import "../../../styles//variables.scss";
+
+.search-wrap {
+  width: max-content;
+  padding-left: 8px;
+  color: $c-text-primary;
+  border: 1px solid $c-grey;
+  border-radius: $round-base;
+  transition: border $transition-delay;
+
+  &:has(.search-input:focus) {
+    border: 1px solid $c-primary;
+  }
+
+  .close-btn {
+    opacity: 0;
+    transition: opacity $transition-delay;
+
+    &.showClose {
+      opacity: 1;
+    }
+  }
+}

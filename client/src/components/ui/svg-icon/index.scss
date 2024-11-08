@@ -1,0 +1,9 @@
+@import "../../../styles//variables.scss";
+
+.svg-icon {
+  color: $c-text-primary;
+
+  &.md {
+    font-size: 1.2em;
+  }
+}

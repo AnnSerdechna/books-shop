@@ -1,0 +1,25 @@
+@import "../../../styles//variables.scss";
+
+.title {
+  color: $c-text-primary;
+
+  &.text-4xl {
+    font-size: $font-4xl;
+  }
+
+  &.text-3xl {
+    font-size: $font-3xl;
+  }
+
+  &.text-xl {
+    font-size: $font-xl;
+  }
+
+  &.text-lg {
+    font-size: $font-base;
+  }
+
+  &.text-base {
+    font-size: $font-sm;
+  }
+}

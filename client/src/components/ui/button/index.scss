@@ -5,17 +5,30 @@
   align-items: center;
   justify-content: center;
   gap: $size-xs;
-  height: $h-btn-lg;
+  height: $height-lg;
   padding: 0 2rem;
-  font-size: $text-lg;
+  font-size: $font-base;
   color: $c-white;
   background-color: $c-primary;
   border: none;
-  border-radius: $round-sm;
+  border-radius: $round-base;
   cursor: pointer;
 
   &.isFullWidth {
     width: 100%;
+  }
+  
+  &.isIconOnly {
+    width: $height-md;
+    height: $height-md;
+    padding: 0;
+    color: $c-text-primary;
+    font-size: $font-3xl;
+    background-color: transparent;
+
+    &.sm {
+      font-size: $font-base;
+    }
   }
 
   &:disabled {

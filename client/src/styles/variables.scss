@@ -1,26 +1,26 @@
 $c-primary: #074c48;
 $c-white: #fff;
+$c-grey: #d9d9d9;
 
-$c-text-base: #444;
+$c-text-primary: #444;
 
 $size-xs: 4px;
 $size-sm: 8px;
 $size-md: 16px;
 $size-lg: 24px;
 
-$h-btn-lg: 40px;
-$h-btn-md: 32px;
-$h-btn-sm: 24px;
+$height-lg: 40px;
+$height-md: 32px;
+$height-sm: 24px;
 
-$round-sm: $size-xs;
-$round-base: $size-sm;
+$round-base: 6px;
 
-$transition: 0.3s;
+$transition-delay: 0.3s;
 
 $card-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-$text-4xl: 2.25rem;
-$text-3xl: 1.5rem;
-$text-xl: 1.125rem;
-$text-lg: 1rem;
-$text-base: 0.8rem;
+$font-4xl: 2.25rem;
+$font-3xl: 1.5rem;
+$font-xl: 1.125rem;
+$font-base: 1rem;
+$font-sm: 0.8rem;

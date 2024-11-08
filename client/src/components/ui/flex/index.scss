@@ -1,0 +1,50 @@
+@import "../../../styles//variables.scss";
+
+.flex {
+  display: flex;
+  align-items: center;
+
+  &.isFullWidth {
+    width: 100%;
+  }
+
+  &.isVertical {
+    flex-direction: column;
+  }
+
+  &.alignStart {
+    align-items: start;
+  }
+
+  &.alignEnd {
+    align-items: end;
+  }
+
+  &.justifyEnd {
+    justify-content: end;
+  }
+
+  &.justifyCenter {
+    justify-content: center;
+  }
+
+  &.justifyBetween {
+    justify-content: space-between;
+  }
+
+  &.sm {
+    gap: $size-sm;
+  }
+
+  &.md {
+    gap: $size-md;
+  }
+
+  &.lg {
+    gap: $size-lg;
+  }
+
+  &.noSpace {
+    gap: 0
+  }
+}
