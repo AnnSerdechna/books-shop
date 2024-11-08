@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes, memo } from 'react';
 
 import { Button, Flex, Input, SvgIcon } from '../../ui';
 import './index.scss';
@@ -9,22 +9,22 @@ type SearchInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onClear: VoidFunction;
 };
 
-export const SearchInput: FC<SearchInputProps> = ({ value, onClear, ...inputProps }) => {
+export const SearchInput: FC<SearchInputProps> = memo(({ value, onClear, ...inputProps }) => {
   return (
     <Flex className={'search-wrap'} noSpace>
       <SvgIcon type={'search'} size={'md'} />
-      <Input 
+      <Input
         value={value}
-        className={'search-input'} 
-        isOutlined={false} 
+        className={'search-input'}
+        isOutlined={false}
         {...inputProps}
       />
-      <Button 
-        icon={<SvgIcon type={'close'} />} 
-        size={'sm'} 
-        className={classNames('close-btn', {showClose: !!value})}
+      <Button
+        icon={<SvgIcon type={'close'} />}
+        size={'sm'}
+        className={classNames('close-btn', { showClose: !!value })}
         onClick={onClear}
       />
     </Flex>
   )
-}
+})
