@@ -10,6 +10,7 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query';
 
+import Home from './pages/home';
 import './styles/index.scss'
 
 const queryClient = new QueryClient();
@@ -17,7 +18,7 @@ const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
-    element:  <></>,
+    element:  <Home />,
   },
   {
     path: "book/:id",

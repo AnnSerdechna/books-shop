@@ -1,0 +1,24 @@
+@import "../../../styles//variables.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $size-xs;
+  height: $h-btn-lg;
+  padding: 0 2rem;
+  font-size: $text-lg;
+  color: $c-white;
+  background-color: $c-primary;
+  border: none;
+  border-radius: $round-sm;
+  cursor: pointer;
+
+  &.isFullWidth {
+    width: 100%;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
