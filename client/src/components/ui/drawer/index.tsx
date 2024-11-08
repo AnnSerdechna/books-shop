@@ -3,11 +3,8 @@ import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import {useMountTransition} from '../../../hooks';
-import './index.scss'
-import { Flex } from '../flex';
-import { Title } from '../title';
-import { Button } from '../button';
-import { SvgIcon } from '../svg-icon';
+import { Flex, Title, Button, SvgIcon } from '../../ui';
+import './index.scss';
 
 type DrawerProps = {
   isOpen: boolean;
@@ -15,7 +12,7 @@ type DrawerProps = {
   className?: string;
   width?: string | number;
   position?: 'left' | 'right' | 'top' | 'bottom';
-  title?: ReactNode;
+  title?: string;
   footer?: ReactNode;
   onClose: VoidFunction;
 };
@@ -89,7 +86,7 @@ export const Drawer: FC<DrawerProps> = ({
       >
         <div className={classNames('drawer-header', {noTitle: !title})}>
           <Flex align={'center'} justify={!!title ?'space-between' : 'end'}>
-            {!!title && <Title level={3}>{title ?? 'some title'}</Title>}
+            {!!title && <Title level={3}>{title}</Title>}
 
             <Button
               icon={<SvgIcon type={'close'} />}

@@ -1,26 +1,29 @@
-import { ChangeEvent, FC, memo, PropsWithChildren, useState } from 'react';
+import { ChangeEvent, FC, memo, PropsWithChildren } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import { SearchInput } from '../../components/elements';
-import { Badge, Button, Flex, SvgIcon } from '../../components/ui';
-import { Cart } from '../../components/sections';
+import { SearchInput, DrawerButton } from '../../components/elements';
+import { Cart, Favorites } from '../../components/sections';
+import { Flex } from '../../components/ui';
 
-const Container: FC<PropsWithChildren> = memo(({ children }) => (
-  <div style={{ padding: 24 }}>
+const Container: FC<PropsWithChildren> = ({ children }) => (
+  <div style={{ padding: 24, margin: 8 }}>
     {children}
   </div>
 )
-)
 
 const Search = memo(() => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchValue = searchParams.get('search') as string;
 
   const handleSearchValueChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    setSearchParams({ search: event.target.value });
   };
 
   const handleClearSearchValue = () => {
-    setSearchValue('');
+    setSearchParams({ search: '' });
   };
+
   return (
     <SearchInput
       value={searchValue}
@@ -31,56 +34,35 @@ const Search = memo(() => {
   )
 })
 
-const End: FC<{ favCount: number }> = memo(({ favCount  }) => {
-
-  const [showCart, setShowCart] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);
-
-  const onFav = () => setShowFavorites(!showFavorites)
-
-  const onCart = () => setShowCart(!showCart)
-
-  return (
-    <Flex>
-      <Badge count={favCount}>
-        <Button
-          icon={<SvgIcon type={'heart'} size={'md'} />}
-          onClick={onFav}
-        />
-      </Badge>
-      <Cart />
-    </Flex>
-  )
-})
-
 const Home: FC = () => {
-  
-  const [showCart, setShowCart] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);
-
-
-
   return (
     <Container>
       <Flex justify={'space-between'}>
         <Search />
 
-        <End favCount={5} />
-     
-        {/* <Flex>
-          <Badge count={2}>
-            <Button 
-              icon={<SvgIcon type={'heart'} size={'md'} />} 
-              onClick={() => setShowFavorites(!showFavorites)}
-            />
-          </Badge>
-          <Badge count={1}>
-            <Button 
-              icon={<SvgIcon type={'cart'} size={'md'} /> } 
-              onClick={() => setShowCart(!showCart)}
-            />
-          </Badge>
-        </Flex> */}
+        <Flex>
+          <DrawerButton
+            drawerTitle={'Favorites'}
+            iconType={'heart'}
+            footer={(
+              <p>I am footer</p>
+            )}
+
+          >
+            <Favorites />
+          </DrawerButton>
+          <DrawerButton
+            drawerTitle={'Cart'}
+            bageCount={2}
+            iconType={'cart'}
+            footer={(
+              <p>I am footer</p>
+            )}
+
+          >
+            <Cart />
+          </DrawerButton>
+        </Flex>
       </Flex>
     </Container>
   )

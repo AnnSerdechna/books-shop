@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import './index.scss';
 
-type CartProps = {}
+type FavoritesProps = {}
 
-export const Cart: FC<CartProps> = () => {
+export const Favorites: FC<FavoritesProps> = () => {
   return (
     <section>
 
