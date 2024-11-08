@@ -1,11 +1,13 @@
 import { FC, ReactNode } from 'react';
 
 import './index.scss';
+import classNames from 'classnames';
 
 interface TitleProps {
   level?: 1 | 2 | 3 | 4 | 5;
   children: ReactNode;
   className?: string;
+  isSecondary?: boolean
 }
 
 const classMap = {
@@ -16,11 +18,18 @@ const classMap = {
   5: 'text-sm',
 };
 
-export const Title: FC<TitleProps> = ({ level = 1, children, className = '', ...props }) => {
+export const Title: FC<TitleProps> = ({ level = 1, isSecondary = false, children, className = '', ...props }) => {
   const Tag = `h${Math.max(1, Math.min(6, level))}` as keyof JSX.IntrinsicElements;
 
   return (
-    <Tag className={`title ${classMap[level]} ${className}`} {...props}>
+    <Tag 
+      className={classNames(`
+        title 
+        ${classMap[level]} 
+        ${className}
+      `, { isSecondary })} 
+      {...props}
+    >
       {children}
     </Tag>
   );
