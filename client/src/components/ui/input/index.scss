@@ -1,0 +1,21 @@
+@import "../../../styles//variables.scss";
+
+.input {
+  height: $height-lg;
+  padding: 0 8px;
+  color: $c-text-primary;
+  font-size: $font-base;
+  border-radius: $round-base;
+  border: none;
+  outline: none;
+
+  &.isOutlined {
+    &:focus {
+      outline: 1px solid $c-primary;
+    }
+  }
+
+  &.isBordered {
+    border: 1px solid $c-grey;
+  }
+}

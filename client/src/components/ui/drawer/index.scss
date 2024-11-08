@@ -1,0 +1,103 @@
+@import "../../../styles//variables.scss";
+
+.drawer-container.in.open {
+  &.open.in {
+    .drawer {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .left,
+    .right {
+      transform: translateX(0);
+    }
+
+    .top,
+    .bottom {
+      transform: translateY(0);
+    }
+
+    .backdrop {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 999;
+    }
+  }
+}
+
+.drawer {
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: transform $transition-delay ease;
+  z-index: 1000;
+
+  &-header{
+    height: $drawer-header-height;
+  }
+
+  &-header,
+  &-content,
+  &-footer {
+    padding: 16px;
+  }
+
+  &-content {
+    flex: 1;
+    overflow: auto;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - $drawer-header-height);
+  }
+
+  &.right {
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.left {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    height: 40%;
+  }
+
+  &.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateY(100%);
+    height: 40%;
+  }
+}
+
+.backdrop {
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 
+    opacity $transition-delay ease,
+    visibility $transition-delay ease;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
